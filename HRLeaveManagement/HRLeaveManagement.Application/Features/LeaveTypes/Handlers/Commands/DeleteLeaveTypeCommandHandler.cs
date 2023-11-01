@@ -31,7 +31,7 @@ namespace HRLeaveManagement.Application.Features.LeaveTypes.Handlers.Commands
             }
 
             //await _leaveTypeRepository.Delete(Convert.ToInt32(leaveType));
-            await _leaveTypeRepository.Delete(leaveType.Id);
+            await _leaveTypeRepository.Delete(leaveType);
             return Unit.Value;
         }
     }

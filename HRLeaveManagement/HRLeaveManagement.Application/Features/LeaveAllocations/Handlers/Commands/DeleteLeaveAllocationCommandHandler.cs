@@ -31,7 +31,7 @@ namespace HRLeaveManagement.Application.Features.LeaveAllocations.Handlers.Comma
             }
 
             //await _leaveAllocationRepository.Delete(Convert.ToInt32(leaveAllocation));
-            await _leaveAllocationRepository.Delete(leaveAllocation.Id);
+            await _leaveAllocationRepository.Delete(leaveAllocation);
 
             return Unit.Value;
         }
