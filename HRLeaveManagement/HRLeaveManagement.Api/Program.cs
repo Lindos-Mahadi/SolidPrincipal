@@ -13,14 +13,6 @@ namespace HRLeaveManagement.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Initialize _configuration with the builder's configuration
-            //IConfiguration _configuration = builder.Configuration;
-
-            //builder.Services.AddDbContext<LeaveManagementDbContext>(options =>
-            //{
-            //    options.UseSqlServer(builder.Configuration.GetConnectionString("LeaveManagementConnectionString"));
-            //});
-
             // All Layer are Register here
             builder.Services.ConfigureApplicationServices();
             builder.Services.ConfigureInfrastructureServices(builder.Configuration);
