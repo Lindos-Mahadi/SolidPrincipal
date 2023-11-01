@@ -14,7 +14,7 @@ namespace HRLeaveManagement.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Initialize _configuration with the builder's configuration
-            IConfiguration _configuration = builder.Configuration;
+            //IConfiguration _configuration = builder.Configuration;
 
             //builder.Services.AddDbContext<LeaveManagementDbContext>(options =>
             //{
@@ -23,8 +23,8 @@ namespace HRLeaveManagement.Api
 
             // All Layer are Register here
             builder.Services.ConfigureApplicationServices();
-            builder.Services.ConfigureInfrastructureServices(_configuration);
-            builder.Services.ConfigurePersistenceServices(_configuration);
+            builder.Services.ConfigureInfrastructureServices(builder.Configuration);
+            builder.Services.ConfigurePersistenceServices(builder.Configuration);
 
 
             // Add services to the container.
