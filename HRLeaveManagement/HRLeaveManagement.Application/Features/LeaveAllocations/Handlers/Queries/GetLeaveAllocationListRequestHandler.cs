@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using HRLeaveManagement.Application.DTOs.LeaveAllocation;
 using HRLeaveManagement.Application.Features.LeaveAllocations.Requests.Quries;
-using HRLeaveManagement.Application.Persistance.Contracts;
+using HRLeaveManagement.Application.Contracts.Persistance;
 using MediatR;
 using System;
 using System.Collections.Generic;
