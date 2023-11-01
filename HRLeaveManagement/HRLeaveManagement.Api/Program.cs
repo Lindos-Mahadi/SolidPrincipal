@@ -1,6 +1,8 @@
 using HRLeaveManagement.Application;
 using HRLeaveManagement.Infrastructure;
 using HRLeaveManagement.Persistence;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace HRLeaveManagement.Api
 {
@@ -10,6 +12,12 @@ namespace HRLeaveManagement.Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+
+            builder.Services.AddDbContext<LeaveManagementDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("LeaveManagementConnectionString"));
+            });
 
             // All Layer are Register here
             builder.Services.ConfigureApplicationServices();
