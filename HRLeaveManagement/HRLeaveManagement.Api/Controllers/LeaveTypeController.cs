@@ -45,21 +45,21 @@ namespace HRLeaveManagement.Api.Controllers
         }
 
         // PUT api/<LeaveTypeController>/5
-        //[HttpPut("UpdateLeaveType/{id}")]
-        //public async Task<ActionResult> UpdateLeaveType(int id, [FromBody] LeaveTypeDto leaveType)
-        //{
-        //    var command = new UpdateLeaveTypeCommand { LeaveTypeDto = leaveType };
-        //    await _mediator.Send(command);
-        //    return Ok();
-        //}
+        [HttpPut("UpdateLeaveType/{id}")]
+        public async Task<ActionResult> UpdateLeaveType(int id, [FromBody] LeaveTypeDto leaveType)
+        {
+            var command = new UpdateLeaveTypeCommand { LeaveTypeDto = leaveType };
+            await _mediator.Send(command);
+            return NoContent();
+        }
 
-        //// DELETE api/<LeaveTypeController>/5
-        //[HttpDelete("DeleteLeaveType/{id}")]
-        //public async Task<ActionResult> DeleteLeaveType(int id)
-        //{
-        //    var command = new DeleteLeaveTypeCommand { Id = id };
-        //    await _mediator.Send(command);
-        //    return Ok();
-        //}
+        // DELETE api/<LeaveTypeController>/5
+        [HttpDelete("DeleteLeaveType/{id}")]
+        public async Task<ActionResult> DeleteLeaveType(int id)
+        {
+            var command = new DeleteLeaveTypeCommand { Id = id };
+            await _mediator.Send(command);
+            return NoContent();
+        }
     }
 }
