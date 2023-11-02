@@ -1,6 +1,7 @@
 using HR.LeaveManagement.MVC.Services.Base;
 using HRLeaveManagement.MVC.Contracts;
 using HRLeaveManagement.MVC.Data;
+using HRLeaveManagement.MVC.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -25,6 +26,11 @@ namespace HRLeaveManagement.MVC
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+            builder.Services.AddScoped<ILeaveTypeService, LeaveTypeService>();
+            //builder.Services.AddScoped<ILeaveAllocationService, LeaveAllocationService>();
+            //builder.Services.AddScoped<ILeaveRequestService, LeaveRequestService>();
 
             builder.Services.AddSingleton<ILocalStorageService, ILocalStorageService>();
 
