@@ -1,7 +1,9 @@
 using HR.LeaveManagement.MVC.Services.Base;
+using HRLeaveManagement.MVC.Contracts;
 using HRLeaveManagement.MVC.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace HRLeaveManagement.MVC
 {
@@ -17,11 +19,15 @@ namespace HRLeaveManagement.MVC
             //    options.UseSqlServer(connectionString));
 
             builder.Services.AddHttpClient<IClient, Client>(cl => cl.BaseAddress = new Uri("https://localhost:44383"));
+            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            builder.Services.AddSingleton<ILocalStorageService, ILocalStorageService>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
