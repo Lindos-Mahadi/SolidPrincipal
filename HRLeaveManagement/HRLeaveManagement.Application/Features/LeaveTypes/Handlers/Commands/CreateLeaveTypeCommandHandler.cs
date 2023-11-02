@@ -36,12 +36,14 @@ namespace HRLeaveManagement.Application.Features.LeaveTypes.Handlers.Commands
                 response.Errors = validationResult.Errors.Select(q => q.ErrorMessage).ToList();
             }
             //throw new ValidationException(validationResult);
-
-            var leaveType = _mapper.Map<LeaveType>(request.LeaveTypeDto);
-            leaveType = await _leaveTypeRepository.Add(leaveType);
-            response.Success = true;
-            response.Message = "Creation Successful";
-            response.Id = leaveType.Id;
+            else
+            {
+                var leaveType = _mapper.Map<LeaveType>(request.LeaveTypeDto);
+                leaveType = await _leaveTypeRepository.Add(leaveType);
+                response.Success = true;
+                response.Message = "Creation Successful";
+                response.Id = leaveType.Id;
+            }
             return response;
 
             //return leaveType.Id;
