@@ -1,4 +1,3 @@
-﻿using HR.LeaveManagement.MVC.Services.Base;
 using HRLeaveManagement.MVC.Contracts;
 using System.Net.Http.Headers;
 
@@ -40,4 +39,5 @@ namespace HRLeaveManagement.MVC.Services.Base
                     new AuthenticationHeaderValue("Bearer", _localStorage.GetStorageValue<string>("token"));
         }
     }
+
 }

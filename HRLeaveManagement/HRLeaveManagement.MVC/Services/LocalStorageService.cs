@@ -7,6 +7,7 @@ namespace HRLeaveManagement.MVC.Services
     {
         private LocalStorage _storage;
 
+
         public LocalStorageService()
         {
             var config = new LocalStorageConfiguration()
