@@ -1,4 +1,4 @@
-using HR.LeaveManagement.MVC.Services.Base;
+using HRLeaveManagement.MVC.Services.Base;
 using HRLeaveManagement.MVC.Contracts;
 using HRLeaveManagement.MVC.Data;
 using HRLeaveManagement.MVC.Services;
@@ -28,9 +28,9 @@ namespace HRLeaveManagement.MVC
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
-            builder.Services.AddScoped<ILeaveTypeService, LeaveTypeService>();
             //builder.Services.AddScoped<ILeaveAllocationService, LeaveAllocationService>();
             //builder.Services.AddScoped<ILeaveRequestService, LeaveRequestService>();
+            builder.Services.AddScoped<ILeaveTypeService, LeaveTypeService>();
 
             builder.Services.AddSingleton<ILocalStorageService, ILocalStorageService>();
 
